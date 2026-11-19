@@ -3,6 +3,15 @@
   "name": "com.liuwangcun.api/chinese-compliance-tools",
   "title": "Liuwangcun Chinese Compliance Tools",
   "description": "29 deterministic Chinese compliance tools: contract risk, labor calculators, clause checklists.",
-  "version": "1.0.1",
-  "remotes": [{ "type": "streamable-http", "url": "https://api.liuwangcun.com/mcp" }]
+  "version": "1.0.2",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.liuwangcun.com/mcp"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mingyi-blog/liuwangcun-mcp"
+  }
 }

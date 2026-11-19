@@ -3,6 +3,8 @@
 **29 deterministic tools for Chinese contracts, labor law, and everyday money math — built for AI agents.**
 
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-active-blue)](https://registry.modelcontextprotocol.io/v0/servers?search=com.liuwangcun.api)
+[![MCP endpoint](https://img.shields.io/badge/endpoint-live-success)](https://api.liuwangcun.com/mcp)
+![no LLM](https://img.shields.io/badge/LLM-none%20·%20deterministic-purple)
 ![tools](https://img.shields.io/badge/tools-29-green)
 ![price](https://img.shields.io/badge/trial-free-brightgreen)
 
