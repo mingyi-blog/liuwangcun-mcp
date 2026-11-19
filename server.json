@@ -11,7 +11,8 @@
     }
   ],
   "repository": {
-    "type": "git",
-    "url": "https://github.com/mingyi-blog/liuwangcun-mcp"
+    "source": "github",
+    "url": "https://github.com/mingyi-blog/liuwangcun-mcp",
+    "id": "1464196101"
   }
 }
