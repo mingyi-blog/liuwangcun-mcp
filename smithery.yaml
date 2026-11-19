@@ -1,0 +1,6 @@
+# Smithery deployment config for a *remote* (hosted) MCP server.
+# Docs: https://smithery.ai/docs/build/project-config/smithery.yaml
+runtime: "remote"
+remote:
+  url: "https://api.liuwangcun.com/mcp"
+  transport: "http"
