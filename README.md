@@ -1,11 +1,11 @@
 # Liuwangcun Chinese Compliance Tools · MCP Server
 
-**29 deterministic tools for Chinese contracts, labor law, and everyday money math — built for AI agents.**
+**48 deterministic tools for Chinese contracts, labor law, and everyday money math — built for AI agents.**
 
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-active-blue)](https://registry.modelcontextprotocol.io/v0/servers?search=com.liuwangcun.api)
 [![MCP endpoint](https://img.shields.io/badge/endpoint-live-success)](https://api.liuwangcun.com/mcp)
 ![no LLM](https://img.shields.io/badge/LLM-none%20·%20deterministic-purple)
-![tools](https://img.shields.io/badge/tools-29-green)
+![tools](https://img.shields.io/badge/tools-48-green)
 ![price](https://img.shields.io/badge/trial-free-brightgreen)
 
 LLMs are unreliable at two things in Chinese: **counting money correctly** and **citing the right statute**. This server solves exactly those two, with zero LLM in the loop — pure rules and formulas, with the article number attached to every answer.
@@ -20,6 +20,10 @@ LLMs are unreliable at two things in Chinese: **counting money correctly** and *
 - **Transport**: streamable-http (JSON-RPC 2.0)
 - **Auth**: none. Free trial on every `tools/call`.
 - **Registry name**: `com.liuwangcun.api/chinese-compliance-tools`
+
+## Agent Skills (installable)
+
+Same 48 tools, packaged as drop-in Skills for Claude / Cursor / Codex — see [`SKILL.md`](SKILL.md) (router) and [`skills/`](skills/) (3 category skills: compliance-screen 10 / calculators 31 / clause-checklist 7). Machine-readable index: [`skills.json`](skills.json). Identical endpoint, different discovery path from this MCP config.
 
 ## What it does
 
@@ -61,6 +65,8 @@ LLMs are unreliable at two things in Chinese: **counting money correctly** and *
 | IOU / loan clause checklist | `loan-template` |
 | Renovation contract clause checklist | `decoration-template` |
 | Separation agreement clause checklist | `separation-template` |
+| Design service contract clause checklist | `design-template` |
+| Business partnership agreement clause checklist (for founders) | `partner-template` |
 
 Output is a **checklist of required elements, traps, and negotiation talking points** — deliberately *not* a ready-to-sign contract body. Generic templates are the #1 cause of unread fine print; a checklist forces the reader to fill in their own terms.
 

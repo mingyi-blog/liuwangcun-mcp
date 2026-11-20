@@ -1,0 +1,88 @@
+{
+  "name": "liuwangcun-assets",
+  "version": "1.0.0",
+  "endpoint": "https://api.liuwangcun.com/mcp",
+  "transport": "streamable-http",
+  "auth": "none",
+  "trial": "free-per-call",
+  "mcpRegistry": "com.liuwangcun.api/chinese-compliance-tools",
+  "totalTools": 48,
+  "skills": [
+    {
+      "name": "liuwangcun-compliance-screen",
+      "category": "risk",
+      "dir": "skills/compliance-screen",
+      "count": 10,
+      "tools": [
+        "ad-law",
+        "labor-contract",
+        "rental-contract",
+        "procurement-contract",
+        "privacy-policy",
+        "decoration-contract",
+        "loan-contract",
+        "nda",
+        "outsourcing-contract",
+        "separation-agreement"
+      ],
+      "description": "把中文原文贴进来，用确定性规则挑出风险点（广告法违禁词、劳动合同、租房、采购、隐私政策、装修、借款、保密、外包、离职协议），零大模型、附法条提示。"
+    },
+    {
+      "name": "liuwangcun-calculators",
+      "category": "tool",
+      "dir": "skills/calculators",
+      "count": 31,
+      "tools": [
+        "cn-uscc",
+        "cn-idcard",
+        "luhn-bank",
+        "rmb-uppercase",
+        "pii-mask",
+        "time-tool",
+        "overtime-pay",
+        "severance-pay",
+        "noncompete-pay",
+        "deposit-check",
+        "probation-check",
+        "gongshang-benefit",
+        "limitation-clock",
+        "zhuangxiu-budget",
+        "gross-margin",
+        "breakeven-point",
+        "table-turnover",
+        "mortgage-monthly",
+        "bmi-check",
+        "volume-weight",
+        "tile-quantity",
+        "gpa-convert",
+        "discount-price",
+        "menu-pricing",
+        "pet-age",
+        "pet-care-schedule",
+        "pet-first-aid",
+        "gpa-multi",
+        "weighted-score",
+        "salary-net",
+        "attendance"
+      ],
+      "description": "算钱、算术绩点、税率、社保到手、房贷、宠物年龄/养护、出勤安全线、工商年假时效等——模型不能猜的数学题，用公式算准。"
+    },
+    {
+      "name": "liuwangcun-clause-checklist",
+      "category": "clause",
+      "dir": "skills/clause-checklist",
+      "count": 7,
+      "tools": [
+        "labor-template",
+        "rental-template",
+        "loan-template",
+        "decoration-template",
+        "separation-template",
+        "design-template",
+        "partner-template"
+      ],
+      "description": "不生成合同正文，只按你的立场输出必备条款要素、对你不利的写法、谈判话术——写合同前先过一遍清单。"
+    }
+  ],
+  "generated": "2026-11-20T02:27:27.385Z"
+}
