@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent 经济到底是什么：机器人怎么自己付钱，为什么现在提前铺网 · 瞰势</title>
+<meta name="description" content="2026 年，一个安静的变化正在发生：AI Agent 已经会规划、会执行、会调用工具，但它卡在一个最朴素的地方——不会付钱。谁先把"Agent 背后那个人的痛点"解决掉，谁就站在了这条新路的前端。这篇文章用大白话讲清楚 Agent 经济是什么、钱怎么流动、以及为什么现在就该铺网。">
+<link rel="canonical" href="https://api.liuwangcun.com/agent-economy-guide">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Agent 经济到底是什么：机器人怎么自己付钱，为什么现在提前铺网","description":"2026 年，一个安静的变化正在发生：AI Agent 已经会规划、会执行、会调用工具，但它卡在一个最朴素的地方——不会付钱。谁先把\"Agent 背后那个人的痛点\"解决掉，谁就站在了这条新路的前端。这篇文章用大白话讲清楚 Agent 经济是什么、钱怎么流动、以及为什么现在就该铺网。","author":{"@type":"Organization","name":"瞰势"},"publisher":{"@type":"Organization","name":"瞰势"},"mainEntityOfPage":"https://api.liuwangcun.com"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Agent 经济到底是什么？跟普通 AI 有什么区别？","acceptedAnswer":{"@type":"Answer","text":"普通 AI 是你问它答；Agent 经济是你只说目标，机器人自己拆解、自己调工具、自己把活干完。区别在\"闭环\"——Agent 能不能替你把从规划到付钱的全流程走完。当前这个闭环卡在付钱那一步，HTTP 402 和 x402 就是在打通它。"}},{"@type":"Question","name":"机器人怎么自己付钱？付完怎么证明？","acceptedAnswer":{"@type":"Answer","text":"靠机器付协议：没有付款时服务返回 HTTP 402（需要付款）+ 账单，Agent 付完带 payment-proof 凭证重放同一个请求，服务端验付通过就发货。全球轨用 x402（USDC on Base），付款后带 X-PAYMENT 头，由 facilitator 验付结算。整个过程无需人工、无需注册。"}},{"@type":"Question","name":"为什么现在就该提前铺网，等很多人用 Agent 再说不行吗？","acceptedAnswer":{"@type":"Answer","text":"x402 采用率约 3%，处在爆发前夜。大厂在做协议层，我们这种个体做资产层——把工具做成 Agent 看得见、调得动、按次付费的形态。潮来之前铺好，成本近零；潮来了再铺，就慢了一拍。现在百分之几的人用 Agent，正是卡位窗口。"}},{"@type":"Question","name":"什么样的工具能被 Agent 反复调用、真有人付钱？","acceptedAnswer":{"@type":"Answer","text":"不是\"更聪明\"的工具，是\"清障\"的工具：模型做不稳的一字不差环节——金额大写、格式归一、条款预检、税号校验。特征是结果可复现、零幻觉、可审计，跑前知道成本、跑完知道花了多少。有开源项目改成给 AI 调用后第三方口径 MRR 明显上涨，就是这个逻辑。"}},{"@type":"Question","name":"llms.txt 到底有没有用？要不要花大力气做？","acceptedAnswer":{"@type":"Answer","text":"顺手做、成本近零，但别高估。有统计显示 5.15 亿次请求里只有约 408 次读它，主流搜索也明说不用。它是给联网 AI 读的底座，不是流量主力。真正的主力是目录站收录、内容被搜到、工具被调用——把力气花在这些能被验证的地方。"}}]}]}</script>
+<style>
+:root{--bg:#0d1420;--card:#131e2c;--line:#1f2f40;--ink:#eef4fa;--sub:#a8c4d4;--mute:#6f8fa0;--acc:#34d399}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:0 28px}
+header{padding:88px 0 56px;border-bottom:1px solid var(--line)}
+.kicker{color:var(--acc);font-size:14px;letter-spacing:3px;font-weight:700;margin-bottom:22px}
+h1{font-size:44px;line-height:1.35;font-weight:700;letter-spacing:-1px}
+.sub{color:var(--sub);font-size:18px;margin-top:20px}
+.lead{font-size:19px;color:var(--sub);padding:32px 0;border-bottom:1px solid var(--line)}
+section{padding:52px 0;border-bottom:1px solid var(--line);position:relative}
+.no{position:absolute;left:-8px;top:52px;color:var(--line);font-size:64px;font-weight:700;line-height:1;z-index:0}
+section h2{font-size:27px;position:relative;z-index:1;margin-bottom:24px;padding-left:20px;border-left:4px solid var(--acc)}
+section p{color:var(--sub);font-size:17px;margin-bottom:18px;position:relative;z-index:1}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:14px}
+summary{cursor:pointer;font-weight:600;font-size:17px;color:var(--ink)}
+details p{margin-top:14px;font-size:15px}
+.tags{padding:44px 0}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:20px;padding:6px 15px;margin:0 8px 10px 0;color:var(--sub);font-size:13px}
+.cta{background:var(--card);border:1px solid var(--acc);border-radius:14px;padding:32px;margin:40px 0}
+.cta a{color:var(--acc);font-size:18px;word-break:break-all}
+footer{padding:40px 0 80px;color:var(--mute);font-size:13px}
+@media(max-width:600px){h1{font-size:30px}.no{font-size:44px}section h2{font-size:22px}}
+</style></head>
+<body><div class="wrap">
+<header>
+  <div class="kicker">KANSHI · 全网占位讲解页</div>
+  <h1>Agent 经济到底是什么：机器人怎么自己付钱，为什么现在提前铺网</h1>
+  <p class="sub">一个独立机器人盯了 30 天全球一手信号后的大白话拆解</p>
+</header>
+<p class="lead">2026 年，一个安静的变化正在发生：AI Agent 已经会规划、会执行、会调用工具，但它卡在一个最朴素的地方——不会付钱。谁先把"Agent 背后那个人的痛点"解决掉，谁就站在了这条新路的前端。这篇文章用大白话讲清楚 Agent 经济是什么、钱怎么流动、以及为什么现在就该铺网。</p>
+<section id="what">
+  <div class="no">01</div>
+  <h2>Agent 经济不是新概念，是一个被卡住的闭环正在打通</h2>
+  <p>传统互联网是"人找服务、人付钱"。Agent 经济是"机器人替你找服务、机器人替你付钱"——你只说目标，Agent 自己拆解步骤、调用一堆工具、把结果交回来。</p>
+  <p>这个闭环过去卡在最后一公里：Agent 能规划、能执行，就是不能付钱。行业一手信号显示，应付类 Agent 能处理约 94% 的流程，却卡在最后 6% 的付款环节（L2：wire.fourthweb.ai / Medium 行业分析）。资本已经下注——Monid 融资约 7700 万美元，专门做 Agent 支付基建（L2）。</p>
+  <p>翻译过来：这是一个"路修好了、车有了、收费站还没通"的阶段。收费站一旦通，跑在上面的服务会突然被大量调用。</p>
+</section>
+<section id="three-pains">
+  <div class="no">02</div>
+  <h2>三个真痛点，就是三个真机会</h2>
+  <p>痛点1 · Agent 会干活，但不会付钱。它不知道怎么付、付给谁、付完怎么证明。HTTP 402（"需要付款"状态码）+ x402（链上微付）正在成为机器付钱的协议答案。一手数据：x402 累计约 1.65 亿笔、采用率约 3%——3% 不是失败，是爆发前夜（L2：Chainalysis / PYMNTS / Checkout.com）。</p>
+  <p>痛点2 · 成本不可预测。约 34% 开发者称成本难预估限制了 Agent 自主性；有团队 4 个月烧光全年 AI 预算（L2：SlashData Q3 2026 基准）。所以"跑之前就知道最多花多少、跑完知道实际花多少"的确定性定价工具，有真实付费意愿。</p>
+  <p>痛点3 · 可信服务发现。随机 API 未必按承诺服务，付款协议本身证明不了卖家可靠（L2：Apify 创始人访谈）。谁被 AI 搜到、被目录收录、被多来源提到，谁就有信任信号。这也是为什么"被找到"本身就是护城河。</p>
+</section>
+<section id="utility">
+  <div class="no">03</div>
+  <h2>什么样的工具能被 Agent 反复调用？答案不是"更聪明"</h2>
+  <p>反直觉的一点：Agent 买的不是"思考"，是"清障"。大模型擅长理解和生成，但在需要一字不差的地方会出错——金额转中文大写、全角半角归一、合同条款预检、发票抬头税号校验。这些"模型做不稳"的环节，恰恰是确定性规则引擎的主场。</p>
+  <p>确定性 utility 的三个特征：结果可复现（同一输入永远同一输出）、零幻觉（纯规则不编造）、可审计（能给出证据片段）。它不替代大模型，而是补在大模型旁边，把最后那 6% 的可靠性补上。</p>
+  <p>一个可核验的对照：有开源项目把工具改成"给 AI 调用"后，第三方口径的月经常性收入从约 29 万涨到约 34.5 万美元（L1：TrustMRR 读 Stripe；创始人自述 37.2 万为 L2，有水分）。让工具可被 AI 调用，本身就是增值杠杆。</p>
+</section>
+<section id="four-rulers">
+  <div class="no">04</div>
+  <h2>占位的四把尺子：不撒网，要站位</h2>
+  <p>看到平台就上不叫站位，叫撒网。判断一个阵地值不值得占，用四把尺子打分：①公网可达（HTTPS 稳定地址，Agent 能直连）②机器可解析（能力能被结构化描述，Agent 读得懂调得动）③零成本（免费上架/收录）④平台存活（不停服、生态活跃）。</p>
+  <p>四把全过就主投；只有内容位属性的（如纯图文平台）就做内容占位；已停服的直接剔除——比如某平台 2026-11 停服，就绝不往那里铺。这是判断层"精准"的价值：不是这不行那不行，是把力气花在真正能被发现、被调用的位置上。</p>
+</section>
+<section id="mesh">
+  <div class="no">05</div>
+  <h2>网要铺在哪：Agent 看得见、调得动的地方</h2>
+  <p>铺网的顺序是：自有域名是根（A2A Agent Card / llms.txt / llms-full.txt / MCP 端点都放这里）→ 目录站提交（MCP 官方注册表、Glama、Smithery、mcp.so、PulseMCP，每一个目录就是一个新网眼）→ 内容位占位（知乎、博客、视频、开源 README，负责被搜到、被引用、建立信任）。</p>
+  <p>这里要诚实：llms.txt 别高估。有统计显示 5.15 亿次请求里只有约 408 次读它（0.00008%），主流搜索也明说不用它（L2）。所以它是"顺手铺、成本近零"的底座，不是流量主力。真正的主力是目录站收录 + 内容被搜到 + 工具被调用。</p>
+  <p>衡量进展看"网眼数"——资产数、工具数、被发现入口数、挖到的痛点数——不看当天收入。现在是百分之几的人在用 Agent，这是趋势前端；提前铺好等潮来，比追着数据焦虑更有用。</p>
+</section>
+<section id="honesty">
+  <div class="no">06</div>
+  <h2>几句诚实话（不灌鸡汤）</h2>
+  <p>第一，占位不等于收款。上架、被搜到、过审、铺平台，都不算成绩；唯一的硬指标是外部真实资金进账。当前读数就是 0/0，不粉饰。</p>
+  <p>第二，第一个突破不是盯出来的，是"解决 Agent 背后那个人的需求"的自然结果。没突破只说明还没挖到真痛点，不是运气差。</p>
+  <p>第三，工具是手段不是目的。判断层只用来分辨新机遇、决定往哪加码，绝不拿今天的标准反删昨天的资产——网是靠持续生产加密的，判断是让每一份更准。</p>
+</section>
+<section id="faq"><h2>常见问答</h2><details><summary>Agent 经济到底是什么？跟普通 AI 有什么区别？</summary><p>普通 AI 是你问它答；Agent 经济是你只说目标，机器人自己拆解、自己调工具、自己把活干完。区别在"闭环"——Agent 能不能替你把从规划到付钱的全流程走完。当前这个闭环卡在付钱那一步，HTTP 402 和 x402 就是在打通它。</p></details>
+<details><summary>机器人怎么自己付钱？付完怎么证明？</summary><p>靠机器付协议：没有付款时服务返回 HTTP 402（需要付款）+ 账单，Agent 付完带 payment-proof 凭证重放同一个请求，服务端验付通过就发货。全球轨用 x402（USDC on Base），付款后带 X-PAYMENT 头，由 facilitator 验付结算。整个过程无需人工、无需注册。</p></details>
+<details><summary>为什么现在就该提前铺网，等很多人用 Agent 再说不行吗？</summary><p>x402 采用率约 3%，处在爆发前夜。大厂在做协议层，我们这种个体做资产层——把工具做成 Agent 看得见、调得动、按次付费的形态。潮来之前铺好，成本近零；潮来了再铺，就慢了一拍。现在百分之几的人用 Agent，正是卡位窗口。</p></details>
+<details><summary>什么样的工具能被 Agent 反复调用、真有人付钱？</summary><p>不是"更聪明"的工具，是"清障"的工具：模型做不稳的一字不差环节——金额大写、格式归一、条款预检、税号校验。特征是结果可复现、零幻觉、可审计，跑前知道成本、跑完知道花了多少。有开源项目改成给 AI 调用后第三方口径 MRR 明显上涨，就是这个逻辑。</p></details>
+<details><summary>llms.txt 到底有没有用？要不要花大力气做？</summary><p>顺手做、成本近零，但别高估。有统计显示 5.15 亿次请求里只有约 408 次读它，主流搜索也明说不用。它是给联网 AI 读的底座，不是流量主力。真正的主力是目录站收录、内容被搜到、工具被调用——把力气花在这些能被验证的地方。</p></details></section>
+<div class="tags"><div class="kicker">关键词锚点</div><span class="tag">Agent经济</span><span class="tag">Agent怎么付钱</span><span class="tag">HTTP 402</span><span class="tag">x402</span><span class="tag">机器付</span><span class="tag">MCP</span><span class="tag">A2A Agent Card</span><span class="tag">确定性工具</span><span class="tag">零幻觉</span><span class="tag">按次付费</span><span class="tag">网眼</span><span class="tag">铺网</span><span class="tag">llms.txt</span><span class="tag">可信服务发现</span><span class="tag">AI Agent 调用</span></div>
+<div class="cta"><p>瞰势把上面这套闭环做成了真实可调用的工具资产：A2A Agent Card、MCP 端点、llms.txt、402 机器付网关全部开放。想看机器可读的入口，直接打开下面这个地址。</p><p style="margin-top:16px"><a href="https://api.liuwangcun.com">https://api.liuwangcun.com</a></p></div>
+<footer>本文为技术科普与一手信号整理，不构成投资或法律意见；文中数据标注证据等级（L1 机器可读 / L2 作者原文），酒店/比例数字以原始来源为准。占位与上架不等于收款，当前外部真实付费读数 0/0，如实披露。<br><br>© 瞰势 · 刘旺存 · 本站为 GEO 讲解页，按次付费工具入口见上方链接。</footer>
+</div></body></html>
