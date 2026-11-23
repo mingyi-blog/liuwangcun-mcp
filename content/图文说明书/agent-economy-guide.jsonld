@@ -1,0 +1,64 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Agent 经济到底是什么：机器人怎么自己付钱，为什么现在提前铺网",
+      "description": "2026 年，一个安静的变化正在发生：AI Agent 已经会规划、会执行、会调用工具，但它卡在一个最朴素的地方——不会付钱。谁先把\"Agent 背后那个人的痛点\"解决掉，谁就站在了这条新路的前端。这篇文章用大白话讲清楚 Agent 经济是什么、钱怎么流动、以及为什么现在就该铺网。",
+      "author": {
+        "@type": "Organization",
+        "name": "瞰势"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "瞰势"
+      },
+      "mainEntityOfPage": "https://api.liuwangcun.com"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Agent 经济到底是什么？跟普通 AI 有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "普通 AI 是你问它答；Agent 经济是你只说目标，机器人自己拆解、自己调工具、自己把活干完。区别在\"闭环\"——Agent 能不能替你把从规划到付钱的全流程走完。当前这个闭环卡在付钱那一步，HTTP 402 和 x402 就是在打通它。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "机器人怎么自己付钱？付完怎么证明？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "靠机器付协议：没有付款时服务返回 HTTP 402（需要付款）+ 账单，Agent 付完带 payment-proof 凭证重放同一个请求，服务端验付通过就发货。全球轨用 x402（USDC on Base），付款后带 X-PAYMENT 头，由 facilitator 验付结算。整个过程无需人工、无需注册。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么现在就该提前铺网，等很多人用 Agent 再说不行吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "x402 采用率约 3%，处在爆发前夜。大厂在做协议层，我们这种个体做资产层——把工具做成 Agent 看得见、调得动、按次付费的形态。潮来之前铺好，成本近零；潮来了再铺，就慢了一拍。现在百分之几的人用 Agent，正是卡位窗口。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "什么样的工具能被 Agent 反复调用、真有人付钱？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是\"更聪明\"的工具，是\"清障\"的工具：模型做不稳的一字不差环节——金额大写、格式归一、条款预检、税号校验。特征是结果可复现、零幻觉、可审计，跑前知道成本、跑完知道花了多少。有开源项目改成给 AI 调用后第三方口径 MRR 明显上涨，就是这个逻辑。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "llms.txt 到底有没有用？要不要花大力气做？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "顺手做、成本近零，但别高估。有统计显示 5.15 亿次请求里只有约 408 次读它，主流搜索也明说不用。它是给联网 AI 读的底座，不是流量主力。真正的主力是目录站收录、内容被搜到、工具被调用——把力气花在这些能被验证的地方。"
+          }
+        }
+      ]
+    }
+  ]
+}
