@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.liuwangcun.api/chinese-compliance-tools",
+  "title": "Liuwangcun Chinese Compliance Tools",
+  "description": "63 deterministic Chinese tools: contract checks, calculators, agent utilities. Zero hallucination.",
+  "version": "2.0.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.liuwangcun.com/mcp"
+    }
+  ],
+  "repository": {
+    "source": "github",
+    "url": "https://github.com/mingyi-blog/liuwangcun-mcp",
+    "id": "1464196101"
+  }
+}
