@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.liuwangcun.api/chinese-compliance-tools",
-  "title": "Liuwangcun Chinese Compliance Tools",
-  "description": "29 deterministic Chinese compliance tools: contract risk, labor calculators, clause checklists.",
-  "version": "1.0.2",
+  "title": "Liuwangcun Chinese Compliance & Deterministic Tools",
+  "description": "63 deterministic Chinese tools: contract/invoice/JD/bid/escrow risk detection, labor & construction calculators, Agent economy utilities (base64/url/hash/base/stats/diff/cron/date/regex/json). Zero hallucination, verifiable results, machine-pay via 402/x402.",
+  "version": "2.0.0",
   "remotes": [
     {
       "type": "streamable-http",
@@ -14,5 +14,11 @@
     "source": "github",
     "url": "https://github.com/mingyi-blog/liuwangcun-mcp",
     "id": "1464196101"
+  },
+  "keywords": ["chinese", "compliance", "deterministic", "contract-risk", "calculator", "agent-economy", "x402", "machine-pay"],
+  "_meta": {
+    "agentCard": "https://api.liuwangcun.com/.well-known/agent.json",
+    "llms": "https://api.liuwangcun.com/llms.txt",
+    "toolCount": 63
   }
 }
