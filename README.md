@@ -1,11 +1,11 @@
 # Liuwangcun Chinese Compliance Tools · MCP Server
 
-**48 deterministic tools for Chinese contracts, labor law, and everyday money math — built for AI agents.**
+**63 deterministic tools for Chinese contracts, labor law, everyday money math, and Agent-economy utilities — built for AI agents.**
 
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-active-blue)](https://registry.modelcontextprotocol.io/v0/servers?search=com.liuwangcun.api)
 [![MCP endpoint](https://img.shields.io/badge/endpoint-live-success)](https://api.liuwangcun.com/mcp)
 ![no LLM](https://img.shields.io/badge/LLM-none%20·%20deterministic-purple)
-![tools](https://img.shields.io/badge/tools-48-green)
+![tools](https://img.shields.io/badge/tools-63-green)
 ![price](https://img.shields.io/badge/trial-free-brightgreen)
 
 LLMs are unreliable at two things in Chinese: **counting money correctly** and **citing the right statute**. This server solves exactly those two, with zero LLM in the loop — pure rules and formulas, with the article number attached to every answer.
@@ -23,7 +23,7 @@ LLMs are unreliable at two things in Chinese: **counting money correctly** and *
 
 ## Agent Skills (installable)
 
-Same 48 tools, packaged as drop-in Skills for Claude / Cursor / Codex — see [`SKILL.md`](SKILL.md) (router) and [`skills/`](skills/) (3 category skills: compliance-screen 10 / calculators 31 / clause-checklist 7). Machine-readable index: [`skills.json`](skills.json). Identical endpoint, different discovery path from this MCP config.
+A curated subset (48 tools) is also packaged as drop-in Skills for Claude / Cursor / Codex — see [`SKILL.md`](SKILL.md) (router) and [`skills/`](skills/) (3 category skills: compliance-screen 10 / calculators 31 / clause-checklist 7). The live MCP endpoint exposes **63 tools**; Skills are a stable subset. Machine-readable index: [`skills.json`](skills.json). Identical endpoint, different discovery path from this MCP config.
 
 ## What it does
 
