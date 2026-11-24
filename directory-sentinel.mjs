@@ -106,8 +106,9 @@ async function main() {
   console.log('────────────────────────────────────────────────────────');
   console.log(` 健康分: ${score}% (${healthy}/${results.length} 目录口径正确)`);
   if (score < 100) {
-    console.log(' 建议: 源头已修(server.json=63/v2.0.0 + DISCOVERY.md)，');
-    console.log('       目录站下次重抓后会刷新；如需立即刷新，在对应目录点 "Refresh/Re-sync"。');
+    console.log(' 事实: 官方 MCP Registry 上游已发布 v2.0.0 (active/isLatest)，旧版已 deprecated。');
+    console.log(' 说明: 下游目录约每小时从官方 registry 重抓一次，STALE/DEGRADED 是重抓延迟，非我方问题。');
+    console.log(' 建议: 如需立即刷新，在对应目录点 "Refresh/Re-sync" 或 claim 列表；哨兵定期复查即可。');
   }
   console.log('════════════════════════════════════════════════════════');
 }
