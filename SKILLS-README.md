@@ -1,9 +1,9 @@
 # Liuwangcun Agent Skills
 
-**48 deterministic Chinese tools as installable Agent Skills — zero LLM, verifiable, statute/formula attached.**
+**48 curated deterministic Chinese tools as installable Agent Skills (live MCP endpoint exposes 63) — zero LLM, verifiable, statute/formula attached.**
 
 [![MCP endpoint](https://img.shields.io/badge/endpoint-live-success)](https://api.liuwangcun.com/mcp)
-![tools](https://img.shields.io/badge/tools-48-green)
+![tools](https://img.shields.io/badge/tools-48-subset-orange)
 ![no LLM](https://img.shields.io/badge/LLM-none-purple)
 ![trial](https://img.shields.io/badge/trial-free-brightgreen)
 
